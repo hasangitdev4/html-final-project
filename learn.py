@@ -13,7 +13,10 @@ df.columns = df.columns.str.strip()
 
 df['Date'] = pd.to_datetime(df['Date'], format='%m/%d/%Y')
 df['Time'] = pd.to_datetime(df['Time'], format='%I:%M:%S %p').dt.time
-print(df["Branch"].head())
+print(df.head())
+print(df.info())
+print(df.describe())
+print(df.isnull().sum())
 
 categorical_cols = ['Payment', 'Gender', 'Customer type', 'Branch', 'Product line']
 for col in categorical_cols:
@@ -105,3 +108,4 @@ for branch in branches:
     #plt.savefig(f"{output_dir}/7_gross_income_boxplot_branch_{branch}.png", bbox_inches='tight')
     plt.show()
     plt.close()
+
